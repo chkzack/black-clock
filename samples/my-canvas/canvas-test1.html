@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<canvas id="myCanvas">your browser does not support the canvas tag </canvas>
+<script type="text/javascript">
+	var canvas=document.getElementById('myCanvas');
+	var ctx=canvas.getContext('2d');
+	ctx.fillStyle='rgba(55,55,55,1)';
+	
+	var length = 100;
+	var width = 10;
+	
+	var pos = {
+		lt : {x:0, y:0},
+		rt : {x:0, y:length+width},
+		lm : {x:length+width, y:0},
+		rm : {x:length+width, y:length+width},
+		lb : {x:2*length+2*width, y:0},
+		rb : {x:2*length+2*width, y:2*length+2*width}
+	}
+	
+	function draw(num){
+		var pace = 5;
+		var i=0;
+		var interval = setInterval(function(){
+			if(i<21){
+				ctx.fillRect(pos.lt.x, pos.lt.y, i*5, 10);
+				ctx.fillRect(pos.lt.x, pos.lt.y, 10, i*5);
+				ctx.fillRect(pos.lt.x, pos.lt.y, i*5, 0);
+				ctx.fillRect(pos.lt.x, pos.lt.y, i*5, 0);
+				ctx.
+				pace++;
+			}else{
+				clearInterval(interval)
+			}
+		}, 1000);
+	}
+	
+	draw();
+	
+	/*ctx.fillRect(0,0,20,100); // top
+	ctx.fillRect(0,0,100,20); // left
+	ctx.fillRect(80,0,20,100); // right
+	ctx.fillRect(0,80,100,20); // bottom*/
+</script>
+</body>
+</html>

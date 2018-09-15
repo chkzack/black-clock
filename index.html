@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>黑色时钟</title>
+		<link rel="stylesheet" href="css/base.css"/>
+		<link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
+		<script type="text/javascript" src="js/three.js" ></script>
+		<script src="js/clock.js"></script>
+	</head> 
+	<body></body>
+	<script src="js/earth.js"></script>
+	<script>
+		//var container = document.getElementsByTagName("canvas")?document.getElementsByTagName("canvas")[0]:document.body;
+		var blackClock = BlackClock(document.getElementsByTagName("canvas")[0]);
+		// load main
+		window.onload = function(){
+			blackClock.ANIMATE_TYPE = "FADELEFT";
+			blackClock.init();	
+		}
+		window.onresize = function(){
+			BlackClock.resizeMain();
+		}
+	</script>
+</html>

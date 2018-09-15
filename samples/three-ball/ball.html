@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="../../js/three.js" ></script>
+	<script>
+		var camera,scene,renderer,container;
+		
+		container = document.body;
+		renderer = new THREE.WebGLRenderer({ alpha:true, antialias: true });
+		renderer.setSize( window.innerWidth-20, window.innerHeight-20);
+		
+		container.appendChild( renderer.domElement );
+		
+		scene = new THREE.Scene();
+		//scene.background = new THREE.Color( 'rgba( 0, 0, 0, 0.5)' );
+		scene.background = new THREE.TextureLoader().load('../../img/bk1.jpg');
+
+		var SCREEN_WIDTH = window.innerWidth-20, SCREEN_HEIGHT = window.innerHeight-20;
+        var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 100000;
+        camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
+        scene.add(camera);
+        camera.position.set( 150, 510, 0 );
+        camera.lookAt( -10000, 510, 0 );
+		
+		var light = new THREE.AmbientLight( 0xffffff, 0.5);
+		scene.add(light);
+		
+		var plight = new THREE.PointLight( 0xffffff, 1);
+		plight.position.set( 0, 10000, 0);
+		scene.add(plight);
+		
+		var ball_g = new THREE.SphereBufferGeometry(500, 100, 100);
+		var ball_t = new THREE.TextureLoader().load('../../img/earth.jpg');
+		var ball_m = new THREE.MeshLambertMaterial({transparent:true, color:0xffffff, map:ball_t, opacity:0.05, side:THREE.FrontSide});
+		var ball = new THREE.Mesh( ball_g, ball_m);
+		ball.position.x = 0;
+		ball.position.y = 0;
+		ball.position.z = 0;
+		scene.add(ball);
+		
+		var animate = function () {
+			requestAnimationFrame( animate );
+			ball.rotation.y += 0.005;
+			renderer.render( scene, camera );
+		};
+		animate();
+		
+//		renderer.render( scene, camera );
+		
+	</script>
+</html>
