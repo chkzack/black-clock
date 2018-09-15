@@ -1,10 +1,7 @@
-//----- 2018-09-12
-新增动画效果：左侧渐变
-新增地球旋转
-
-//----- 2018-09-06
-新增动画效果：飞入、渐变、飞入渐变
-
-//----- 2018-09-05
-开启黑色时钟工程，建立初期电子时钟
-
+# black-clock<br>
+This is a demo project which written in html,css,javascript.<br>
+And it uses THREE.js and Font Awesome.<br>
+My purpose to do this is to make my terrible desktop background look a bit cool.<br>
+<br>
+And here is the preview:<br>
+![preview](https://github.com/chkzack/black-clock/preview.png)
